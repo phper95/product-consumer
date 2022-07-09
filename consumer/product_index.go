@@ -1,56 +1,19 @@
 package consumer
 
-import "time"
-
-type OrderIndex struct {
-	OrderId                string      `json:"orderId"`
-	ExtendOrderId          string      `json:"extend_order_id"`
-	Uid                    int64       `json:"uid"`
-	RealName               string      `json:"realName"`
-	UserPhone              string      `json:"userPhone"`
-	UserAddress            string      `json:"userAddress"`
-	CartId                 string      `json:"cartId"`
-	FreightPrice           float64     `json:"freightPrice"`
-	TotalNum               int         `json:"totalNum"`
-	TotalPrice             float64     `json:"totalPrice"`
-	TotalPostage           float64     `json:"totalPostage"`
-	PayPrice               float64     `json:"payPrice"`
-	PayPostage             float64     `json:"payPostage"`
-	DeductionPrice         float64     `json:"deductionPrice"`
-	CouponId               int64       `json:"couponId"`
-	CouponPrice            float64     `json:"couponPrice"`
-	Paid                   int         `json:"paid"`
-	PayTime                time.Time   `json:"payTime"`
-	PayType                string      `json:"payType"`
-	Status                 int         `json:"status"`
-	RefundStatus           int         `json:"refundStatus"`
-	RefundReasonWapImg     string      `json:"refundReasonWapImg"`
-	RefundReasonWapExplain string      `json:"refundReasonWapExplain"`
-	RefundReasonTime       time.Time   `json:"refundReasonTime"`
-	RefundReasonWap        string      `json:"refundReasonWap"`
-	RefundReason           string      `json:"refundReason"`
-	RefundPrice            float64     `json:"refundPrice"`
-	DeliverySn             string      `json:"deliverySn"`
-	DeliveryName           string      `json:"deliveryName"`
-	DeliveryType           string      `json:"deliveryType"`
-	DeliveryId             string      `json:"deliveryId"`
-	GainIntegral           int         `json:"gainIntegral"`
-	UseIntegral            int         `json:"useIntegral"`
-	PayIntegral            int         `json:"payIntegral"`
-	BackIntegral           int         `json:"backIntegral"`
-	Mark                   string      `json:"mark"`
-	Unique                 string      `json:"unique"`
-	Remark                 string      `json:"remark"`
-	CombinationId          int64       `json:"combinationId"`
-	PinkId                 int64       `json:"pinkId"`
-	Cost                   float64     `json:"cost"`
-	SeckillId              int64       `json:"seckillId"`
-	BargainId              int64       `json:"bargainId"`
-	VerifyCode             string      `json:"verifyCode"`
-	StoreId                int64       `json:"storeId"`
-	ShippingType           int         `json:"shippingType"`
-	CartInfo               interface{} `json:"cartInfo"`
-	OrderStatus            int         `json:"_status"`
-	OrderStatusName        string      `json:"statusName"`
-	PayTypeName            string      `json:"payTypeName"`
+type ProductIndex struct {
+	Id          int64   `json:"id"`          //商品id
+	StoreName   string  `json:"store_name"`  //商品名称
+	StoreInfo   string  `json:"store_info"`  //商品简介
+	Keyword     string  `json:"keyword"`     //关键字
+	CateId      int     `json:"cate_id"`     //分类id
+	Price       float64 `json:"price"`       //商品价格
+	Sales       int32   `json:"sales"`       //销量
+	Ficti       int32   `json:"ficti"`       //虚拟销量
+	IsHot       int8    `json:"is_hot"`      //是否热卖 (0: 否，1：是)
+	IsBenefit   int8    `json:"is_benefit"`  //是否优惠(0: 否，1：是)
+	IsBest      int8    `json:"is_best"`     //是否精品(0: 否，1：是)
+	IsNew       int8    `json:"is_new"`      //是否新品 (0: 否，1：是)
+	Description string  `json:"description"` //产品描述
+	IsPostage   int8    `json:"is_postage"`  //是否包邮 (0: 否，1：是)
+	IsGood      int8    `json:"is_good"`     //是否优品推荐 (0: 否，1：是)
 }
