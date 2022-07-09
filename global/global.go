@@ -6,7 +6,7 @@ import (
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
-	"order-consumer/conf"
+	"product-consumer/conf"
 )
 
 var (

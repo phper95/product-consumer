@@ -1,5 +1,5 @@
 package global
 
 const (
-	IndexName = "shop-order"
+	IndexName = "shop-product"
 )

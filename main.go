@@ -7,9 +7,9 @@ import (
 	"gitee.com/phper95/pkg/trace"
 	"github.com/go-redis/redis/v7"
 	"go.uber.org/zap"
-	"order-consumer/conf"
-	"order-consumer/consumer"
-	"order-consumer/global"
+	"product-consumer/conf"
+	"product-consumer/consumer"
+	"product-consumer/global"
 )
 
 func init() {
@@ -44,7 +44,7 @@ func initESClient() {
 	err := es.InitClientWithOptions(es.DefaultClient, global.CONFIG.Elasticsearch.Hosts,
 		global.CONFIG.Elasticsearch.Username, global.CONFIG.Elasticsearch.Password,
 		es.WithScheme("https"))
-	
+
 	if err != nil {
 		panic(err)
 	}

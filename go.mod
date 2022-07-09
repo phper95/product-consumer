@@ -1,14 +1,14 @@
-module order-consumer
+module product-consumer
 
 go 1.16
 
 require (
-	gitee.com/phper95/pkg/cache v0.0.0-20220703161448-d9b4a52dca92
-	gitee.com/phper95/pkg/es v0.0.0-20220703161448-d9b4a52dca92
-	gitee.com/phper95/pkg/file v0.0.0-20220703161448-d9b4a52dca92
-	gitee.com/phper95/pkg/logger v0.0.0-20220703161448-d9b4a52dca92
-	gitee.com/phper95/pkg/mq v0.0.0-20220703161448-d9b4a52dca92
-	gitee.com/phper95/pkg/trace v0.0.0-20220703161448-d9b4a52dca92
+	gitee.com/phper95/pkg/cache v0.0.0-20220705003258-f4fb5a0fd30d
+	gitee.com/phper95/pkg/es v0.0.0-20220705003258-f4fb5a0fd30d
+	gitee.com/phper95/pkg/file v0.0.0-20220705003258-f4fb5a0fd30d
+	gitee.com/phper95/pkg/logger v0.0.0-20220705003258-f4fb5a0fd30d
+	gitee.com/phper95/pkg/mq v0.0.0-20220705003258-f4fb5a0fd30d
+	gitee.com/phper95/pkg/trace v0.0.0-20220705003258-f4fb5a0fd30d
 	github.com/Shopify/sarama v1.29.1
 	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
 	github.com/fsnotify/fsnotify v1.5.4

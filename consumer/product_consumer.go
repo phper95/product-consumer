@@ -4,15 +4,15 @@ import (
 	"gitee.com/phper95/pkg/es"
 	"gitee.com/phper95/pkg/mq"
 	"github.com/Shopify/sarama"
-	"order-consumer/global"
+	"product-consumer/global"
 )
 
 var orderConsumer *mq.Consumer
 
-func StartOrderConsumer() {
+func StartConsumer() {
 	var err error
 	orderConsumer, err = mq.StartKafkaConsumer(global.CONFIG.Kafka.Hosts,
-		[]string{global.CONFIG.Kafka.OrderTopic}, "order-consumer",
+		[]string{global.CONFIG.Kafka.OrderTopic}, "product-consumer",
 		nil, OrderMsgHandler)
 	if err != nil {
 		panic(err)
