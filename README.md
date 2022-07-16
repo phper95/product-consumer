@@ -4,4 +4,8 @@
 
 [课程地址 **点此 打开**](https://coding.imooc.com/class/579.html?mc_marking=bb86c9071ed9b7cf12612a2a85203372)
 
-product-consumer作为shop商城消费者，下单后，订单信息入kafka,此服务作为消费端，从kafka中消费订单信息后写入ES
+product-consumer作为为商品消费微服务，
+作为shop-main商城消费者，商品数据变更后，shop-main将商品变更信息入kafka,product-consumer微服务作为消费端，从kafka中消费商品信息后写入ES
+商城服务地址：https://gitee.com/phper95/shop-main 
+商品数据变更处理流程如下：
+![商品搜索架构图](./doc/img/商品搜索架构图.png)
