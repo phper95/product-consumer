@@ -55,6 +55,6 @@ func initMongoClient() {
 }
 
 func main() {
-	consumer.StartOrderConsumer()
+	consumer.StartConsumer()
 	select {}
 }

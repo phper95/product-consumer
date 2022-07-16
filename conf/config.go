@@ -50,6 +50,5 @@ type Zap struct {
 }
 
 type Kafka struct {
-	Hosts      []string `mapstructure:"hosts" yaml:"hosts"`
-	OrderTopic string   `mapstructure:"order-topic" yaml:"order-topic"`
+	Hosts []string `mapstructure:"hosts" yaml:"hosts"`
 }
