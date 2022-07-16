@@ -4,6 +4,7 @@ import (
 	"gitee.com/phper95/pkg/cache"
 	"gitee.com/phper95/pkg/es"
 	"gitee.com/phper95/pkg/logger"
+	"gitee.com/phper95/pkg/shutdown"
 	"gitee.com/phper95/pkg/trace"
 	"github.com/go-redis/redis/v7"
 	"go.uber.org/zap"
@@ -56,5 +57,15 @@ func initMongoClient() {
 
 func main() {
 	consumer.StartConsumer()
-	select {}
+	//优雅关闭
+	shutdown.NewHook().Close(
+		func() {
+			//关闭kafka consumer
+			consumer.CloseProductConsumer()
+		},
+		func() {
+			//关闭ES
+			es.CloseAll()
+		},
+	)
 }

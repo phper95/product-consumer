@@ -16,7 +16,9 @@ product-consumer作为为商品消费微服务，使用go语言开发。
 4. mongoDB 
 5. logger 日志库
 
-
+## 运行方式
+1. 项目根目录下执行 go run main.go
+2. 项目根目录下执行 go build main.go ,直接运行生成的main程序
 
 商品数据变更处理流程如下：
 ![商品搜索架构图](./doc/img/商品搜索架构图.png)

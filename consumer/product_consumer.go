@@ -9,11 +9,11 @@ import (
 	"strconv"
 )
 
-var orderConsumer *mq.Consumer
+var productConsumer *mq.Consumer
 
 func StartConsumer() {
 	var err error
-	orderConsumer, err = mq.StartKafkaConsumer(global.CONFIG.Kafka.Hosts,
+	productConsumer, err = mq.StartKafkaConsumer(global.CONFIG.Kafka.Hosts,
 		[]string{global.Topic}, "product-consumer",
 		nil, MsgHandler)
 	if err != nil {
@@ -30,7 +30,7 @@ func MsgHandler(msg *sarama.ConsumerMessage) (bool, error) {
 		global.LOG.Error("Unmarshal", err, string(msg.Value))
 		return true, nil
 	}
-	mq.KafkaStdLogger.Println("product :", product)
+	mq.KafkaStdLogger.Printf("product :%+v", product)
 	productIndex := product.ProductIndex
 	switch product.Operation {
 	case global.OperationCreate, global.OperationUpdate:
@@ -41,8 +41,8 @@ func MsgHandler(msg *sarama.ConsumerMessage) (bool, error) {
 	return true, nil
 }
 
-func CloseOrderConsumer() {
-	if orderConsumer != nil {
-		orderConsumer.Close()
+func CloseProductConsumer() {
+	if productConsumer != nil {
+		productConsumer.Close()
 	}
 }
