@@ -3,15 +3,16 @@ module product-consumer
 go 1.16
 
 require (
-	gitee.com/phper95/pkg/cache v0.0.0-20220705003258-f4fb5a0fd30d
-	gitee.com/phper95/pkg/es v0.0.0-20220716064923-ac1084b5ada5
-	gitee.com/phper95/pkg/file v0.0.0-20220705003258-f4fb5a0fd30d
-	gitee.com/phper95/pkg/logger v0.0.0-20220705003258-f4fb5a0fd30d
-	gitee.com/phper95/pkg/mq v0.0.0-20220705003258-f4fb5a0fd30d
-	gitee.com/phper95/pkg/shutdown v0.0.0-20220712131014-476302b4332f
-	gitee.com/phper95/pkg/trace v0.0.0-20220705003258-f4fb5a0fd30d
+	gitee.com/phper95/pkg/cache v0.0.0-20220717100747-3cf477b9a8d7
+	gitee.com/phper95/pkg/es v0.0.0-20220717102538-d460e19eb7dc
+	gitee.com/phper95/pkg/file v0.0.0-20220717100747-3cf477b9a8d7
+	gitee.com/phper95/pkg/logger v0.0.0-20220717100747-3cf477b9a8d7
+	gitee.com/phper95/pkg/mq v0.0.0-20220717100747-3cf477b9a8d7
+	gitee.com/phper95/pkg/shutdown v0.0.0-20220717100747-3cf477b9a8d7
+	gitee.com/phper95/pkg/trace v0.0.0-20220717100747-3cf477b9a8d7
 	//github.com/Shopify/sarama v1.29.1  //linux下使用此版本
-	github.com/Shopify/sarama v1.19.0   //windows下使用此版本
+	github.com/Shopify/sarama v1.19.0 //windows下使用此版本
+	github.com/eapache/go-resiliency v1.3.0 // indirect
 	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
 	github.com/fsnotify/fsnotify v1.5.4
 	github.com/go-redis/redis/v7 v7.4.1

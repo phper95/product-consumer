@@ -77,8 +77,8 @@
     "dynamic": "strict",
     "_source": {
       "excludes": [
-        "storeName",
-        "storeInfo",
+        "store_name",
+        "store_info",
         "description",
         "keyword"
       ]
@@ -88,7 +88,7 @@
         "type": "keyword",
         "doc_values": false
       },
-      "storeName": {
+      "store_name": {
         "type": "text",
         "index_options": "positions",
         "analyzer": "ik_index_analyzer",
@@ -115,7 +115,7 @@
         "analyzer": "ik_index_analyzer",
         "search_analyzer": "ik_search_analyzer"
       },
-      "storeInfo": {
+      "store_info": {
         "type": "text",
         "index_options": "positions",
         "copy_to": "desc",
@@ -136,7 +136,7 @@
         "analyzer": "ik_index_analyzer",
         "search_analyzer": "ik_search_analyzer"
       },
-      "cateId": {
+      "cate_id": {
         "type": "keyword",
         "doc_values": false
       },
@@ -149,23 +149,28 @@
       "ficti": {
         "type": "long"
       },
-      "isHot": {
-        "type": "boolean"
+      "is_hot": {
+        "type": "keyword"
       },
-      "isBenefit": {
-        "type": "boolean"
+      "is_benefit": {
+        "type": "keyword"
       },
-      "isBest": {
-        "type": "boolean"
+      "is_best": {
+        "type": "keyword"
       },
-      "isNew": {
-        "type": "boolean"
+      "is_new": {
+        "type": "keyword"
       },
-      "isPostage": {
-        "type": "boolean"
+      "is_postage": {
+        "type": "keyword"
       },
-      "isGood": {
-        "type": "boolean"
+      "is_good": {
+        "type": "keyword"
+      },
+      "create_time":{
+        "type": "date"
+      }, "update_time":{
+        "type": "date"
       }
     }
   }
