@@ -9,8 +9,8 @@ import (
 	"github.com/go-redis/redis/v7"
 	"go.uber.org/zap"
 	"product-consumer/conf"
-	"product-consumer/consumer"
 	"product-consumer/global"
+	"product-consumer/internal/consumer"
 )
 
 func init() {
@@ -19,6 +19,7 @@ func init() {
 	initRedisClient()
 	initMongoClient()
 	initESClient()
+
 }
 
 func initRedisClient() {
@@ -36,19 +37,22 @@ func initRedisClient() {
 	}
 	err := cache.InitRedis(cache.DefaultRedisClient, &opt, &redisTrace)
 	if err != nil {
-		logger.Error("redis init error", zap.Error(err))
+		global.LOG.Error("redis init error", zap.Error(err), "client", cache.DefaultRedisClient)
 		panic("initRedisClient error")
 	}
 }
 
+//初始化ES
 func initESClient() {
 	err := es.InitClientWithOptions(es.DefaultClient, global.CONFIG.Elasticsearch.Hosts,
-		global.CONFIG.Elasticsearch.Username, global.CONFIG.Elasticsearch.Password,
+		global.CONFIG.Elasticsearch.Username,
+		global.CONFIG.Elasticsearch.Password,
 		es.WithScheme("https"))
-
 	if err != nil {
+		global.LOG.Error("InitClientWithOptions error", err, "client", es.DefaultClient)
 		panic(err)
 	}
+	global.ES = es.GetClient(es.DefaultClient)
 }
 
 func initMongoClient() {
@@ -56,16 +60,19 @@ func initMongoClient() {
 }
 
 func main() {
+	//开启消费者
 	consumer.StartConsumer()
+
 	//优雅关闭
 	shutdown.NewHook().Close(
 		func() {
-			//关闭kafka consumer
+			//kafka consumer
 			consumer.CloseProductConsumer()
 		},
 		func() {
-			//关闭ES
+			//es
 			es.CloseAll()
 		},
 	)
+
 }
