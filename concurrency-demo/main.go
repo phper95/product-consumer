@@ -21,7 +21,6 @@ func main() {
 		res2 = searchThread2()
 	}()
 
-	//一旦接收到消息就会执行，否则阻塞等待
 	<-t1
 	<-t2
 	fmt.Println("all search done", res1, res2)
@@ -31,10 +30,8 @@ func searchThread1() string {
 	defer func() {
 		t1 <- true
 	}()
-	//do search t1
 	time.Sleep(time.Second)
 	fmt.Println("t1 search")
-	//执行完成后发送消息到管道t1
 	return "t1"
 
 }
@@ -43,10 +40,7 @@ func searchThread2() string {
 	defer func() {
 		t2 <- true
 	}()
-	//do search t2
 	time.Sleep(time.Second)
 	fmt.Println("t2 search")
-	//执行完成后发送消息到管道t2
 	return "t2"
-
 }

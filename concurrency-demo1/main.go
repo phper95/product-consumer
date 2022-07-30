@@ -13,7 +13,6 @@ func main() {
 	wg.Add(2)
 	go func() {
 		res1 = searchThread1(&wg)
-
 	}()
 
 	go func() {
@@ -29,20 +28,18 @@ func searchThread1(wg *sync.WaitGroup) string {
 	defer func() {
 		wg.Done()
 	}()
-	//do search t1
+
 	time.Sleep(time.Second)
 	fmt.Println("t1 search")
 	return "t1"
-
 }
 
 func searchThread2(wg *sync.WaitGroup) string {
 	defer func() {
 		wg.Done()
 	}()
-	//do search t2
+
 	time.Sleep(time.Second)
 	fmt.Println("t2 search")
 	return "t2"
-
 }
