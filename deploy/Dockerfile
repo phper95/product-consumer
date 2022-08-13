@@ -25,8 +25,6 @@ RUN apk --no-cache add tzdata  && \
 # COPY 源路径 目标路径 从镜像中 COPY
 COPY --from=builder  /usr/local/src/order-consumer /usr/local/order-consumer
 
-# EXPOSE 设置端口映射
-EXPOSE 9999/tcp
 
 # WORKDIR 设置工作目录
 WORKDIR /opt
