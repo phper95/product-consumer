@@ -15,7 +15,7 @@ var productConsumer *mq.Consumer
 func StartConsumer() {
 	var err error
 	productConsumer, err = mq.StartKafkaConsumer(global.CONFIG.Kafka.Hosts, []string{global.Topic},
-		"product-consumer2", nil, MsgHandler)
+		"product-consumer", nil, MsgHandler)
 	if err != nil {
 		global.LOG.Error("StartKafkaConsumer error", err)
 		panic(err)
